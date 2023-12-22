@@ -1,54 +1,7 @@
-import './App.css'
-
 import React from 'react'
-import { useState, useEffect } from 'react';
-import { Auth } from 'aws-amplify';
-import {useNavigate} from "react-router-dom";
-import ToastComponent from './components/ToastComponent';
-
-import Footer from './Footer';
+import ToastComponent from '../components/ToastComponent';
 
 function SignUp() {
-    const [lastname, setLastname] = useState('');
-    const [firstname, setFirstname] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [isSignedUp, setIsSignedUp] = useState(false);
-    const [error, setError] = useState(null);
-
-    const navigate = useNavigate();
-
-    const closeToast = () => {
-        setError(null);
-    };
-
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        if (!email) {
-            console.error('Le nom d\'utilisateur (e-mail) ne peut pas être vide', email);
-            return;
-        }
-        try {
-            const signUpResponse = await Auth.signUp({
-                username: email,
-                password,
-                attributes: {
-                    family_name: lastname,
-                    name: firstname,
-                },
-            });
-            console.log('Réponse de l\'inscription:', signUpResponse);
-            setIsSignedUp(true);
-            navigate('/confirmsignup');
-        } catch (error) {
-            console.error('Erreur lors de l\'inscription:', error);
-            setError('Erreur lors de l\'inscription: ' + error.message);
-            setTimeout(() => {
-                closeToast();
-            }, 2500);
-        }
-    };
-
     return (
         <section className="bg-gray-50 dark:bg-gray-900">
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">

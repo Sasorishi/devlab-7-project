@@ -1,28 +1,6 @@
-import React, { useState } from 'react';
-import { Auth } from 'aws-amplify';
-import {useNavigate} from "react-router-dom";
+import React from 'react';
 
 function ConfirmSignUp() {
-    const [email, setEmail] = useState('');
-    const [code, setCode] = useState('');
-    const [error, setError] = useState('');
-    const [confirmed, setConfirmed] = useState(false);
-
-    const navigate = useNavigate(); // Initialisation de useNavigate
-
-
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        try {
-            await Auth.confirmSignUp(email, code);
-            setConfirmed(true);
-            navigate('/profile');
-            // Redirigez l'utilisateur ou affichez un message de succès
-        } catch (error) {
-            setError(error.message);
-        }
-    };
-
     return (
         <section className="bg-gray-50 dark:bg-gray-900">
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
