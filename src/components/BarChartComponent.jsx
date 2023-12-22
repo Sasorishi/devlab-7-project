@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 
-const BarChart = ({ data }) => {
+const BarChartComponent = ({ data, selectedColor }) => {
   const chartRef = useRef();
 
   useEffect(() => {
     drawChart();
-  }, [data]);
+  }, [data, selectedColor]);
 
   const drawChart = () => {
     const svg = d3.select(chartRef.current);
@@ -15,6 +15,8 @@ const BarChart = ({ data }) => {
 
     // Supprimer le contenu existant avant de redessiner
     svg.selectAll('*').remove();
+
+    const barColor = selectedColor || 'steelblue';
 
     // Créer l'échelle des x (barres horizontales)
     const xScale = d3.scaleBand().domain(data.map((d, i) => i)).range([0, width]).padding(0.1);
@@ -31,7 +33,7 @@ const BarChart = ({ data }) => {
       .attr('y', d => yScale(d))
       .attr('width', xScale.bandwidth())
       .attr('height', d => height - yScale(d))
-      .attr('fill', 'steelblue');
+      .attr('fill', barColor);
   };
 
   return (
@@ -41,4 +43,4 @@ const BarChart = ({ data }) => {
   );
 };
 
-export default BarChart;
+export default BarChartComponent;
