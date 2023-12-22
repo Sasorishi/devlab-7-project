@@ -1,0 +1,264 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-projetdevops-main-150900-authRole",
+      "UnauthRoleArn": "arn:aws:iam::030458456278:role/amplify-projetdevops-main-150900-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::030458456278:role/amplify-projetdevops-main-150900-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-projetdevops-main-150900-deployment",
+      "UnauthRoleName": "amplify-projetdevops-main-150900-unauthRole",
+      "StackName": "amplify-projetdevops-main-150900",
+      "StackId": "arn:aws:cloudformation:eu-west-1:030458456278:stack/amplify-projetdevops-main-150900/7df3f080-a00a-11ee-b262-028bc74c7dd5",
+      "AmplifyAppId": "djltmuvzksfh",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-projetdevops-main-150900-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-projetdevops-main-150900-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    }
+  },
+  "api": {
+    "apib7ad3daa": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "getUsers"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "projetdevopsd832ff70"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-projetdevops-main-150900-deployment/amplify-cfn-templates/api/apib7ad3daa-cloudformation-template.json",
+        "logicalId": "apiapib7ad3daa"
+      },
+      "lastPushTimeStamp": "2023-12-21T14:22:35.814Z",
+      "output": {
+        "ApiName": "apib7ad3daa",
+        "RootUrl": "https://nb14geh3rc.execute-api.eu-west-1.amazonaws.com/main",
+        "ApiId": "nb14geh3rc"
+      },
+      "lastPushDirHash": "Frxv43dXPyGOIkm2j8v9r+vZrA0="
+    }
+  },
+  "auth": {
+    "projetdevops7098afb4": {
+      "customAuth": false,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "projetdevops7098afb4PostConfirmation",
+          "triggerProvider": "Cognito"
+        }
+      ],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OPTIONAL",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "signupAttributes": [
+          "EMAIL",
+          "FAMILY_NAME",
+          "NAME"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-projetdevops-main-150900-deployment/amplify-cfn-templates/auth/projetdevops7098afb4-cloudformation-template.json",
+        "logicalId": "authprojetdevops7098afb4"
+      },
+      "lastPushTimeStamp": "2023-12-21T14:22:35.814Z",
+      "output": {
+        "CreatedSNSRole": "arn:aws:iam::030458456278:role/sns7098afb4150900-main",
+        "UserPoolId": "eu-west-1_zFgXlbYwc",
+        "AppClientIDWeb": "1nofdvss7heuf2einqbnjfs4pr",
+        "AppClientID": "611hm1ct1ig8adab31umkv155n",
+        "IdentityPoolId": "eu-west-1:1b39ac4a-76dd-4fec-80c1-b8bef99dcc46",
+        "UserPoolArn": "arn:aws:cognito-idp:eu-west-1:030458456278:userpool/eu-west-1_zFgXlbYwc",
+        "IdentityPoolName": "projetdevops7098afb4_identitypool_7098afb4__main",
+        "UserPoolName": "projetdevops7098afb4_userpool_7098afb4"
+      },
+      "lastPushDirHash": "2VY7XaaQGDWinZrRukOilgxZdyk="
+    }
+  },
+  "function": {
+    "getUsers": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "dynamoffbc75dd"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2023-12-21T14:19:19.001Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2023-12-21T14:19:19.726Z",
+      "distZipFilename": "getUsers-707258577877697a7948-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-projetdevops-main-150900-deployment",
+        "s3Key": "amplify-builds/getUsers-707258577877697a7948-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-projetdevops-main-150900-deployment/amplify-cfn-templates/function/getUsers-cloudformation-template.json",
+        "logicalId": "functiongetUsers"
+      },
+      "lastPushTimeStamp": "2023-12-21T14:22:35.814Z",
+      "output": {
+        "LambdaExecutionRoleArn": "arn:aws:iam::030458456278:role/projetdevopsLambdaRole4de787b5-main",
+        "Region": "eu-west-1",
+        "Arn": "arn:aws:lambda:eu-west-1:030458456278:function:getUsers-main",
+        "Name": "getUsers-main",
+        "LambdaExecutionRole": "projetdevopsLambdaRole4de787b5-main"
+      },
+      "lastPushDirHash": "EJKaf44/EVWSIkKlcsQ6Wsn4aGE="
+    },
+    "projetdevops7098afb4PostConfirmation": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "usersbis"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2023-12-21T14:19:22.022Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2023-12-21T14:19:25.889Z",
+      "distZipFilename": "projetdevops7098afb4PostConfirmation-30624d5358314e655178-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-projetdevops-main-150900-deployment",
+        "s3Key": "amplify-builds/projetdevops7098afb4PostConfirmation-30624d5358314e655178-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-projetdevops-main-150900-deployment/amplify-cfn-templates/function/projetdevops7098afb4PostConfirmation-cloudformation-template.json",
+        "logicalId": "functionprojetdevops7098afb4PostConfirmation"
+      },
+      "lastPushTimeStamp": "2023-12-21T14:22:35.814Z",
+      "output": {
+        "LambdaExecutionRoleArn": "arn:aws:iam::030458456278:role/projetdevops7098afb4PostConfirmation-main",
+        "Region": "eu-west-1",
+        "Arn": "arn:aws:lambda:eu-west-1:030458456278:function:projetdevops7098afb4PostConfirmation-main",
+        "Name": "projetdevops7098afb4PostConfirmation-main",
+        "LambdaExecutionRole": "projetdevops7098afb4PostConfirmation-main"
+      },
+      "lastPushDirHash": "ULkcST5CgzxceE2EDOyJyLNFGCI="
+    },
+    "projetdevopsd832ff70": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "usersbis"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2023-12-21T14:19:30.508Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2023-12-21T14:19:31.031Z",
+      "distZipFilename": "projetdevopsd832ff70-674b6a49376655416362-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-projetdevops-main-150900-deployment",
+        "s3Key": "amplify-builds/projetdevopsd832ff70-674b6a49376655416362-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-projetdevops-main-150900-deployment/amplify-cfn-templates/function/projetdevopsd832ff70-cloudformation-template.json",
+        "logicalId": "functionprojetdevopsd832ff70"
+      },
+      "lastPushTimeStamp": "2023-12-21T14:22:35.814Z",
+      "output": {
+        "LambdaExecutionRoleArn": "arn:aws:iam::030458456278:role/projetdevopsLambdaRole85815a8c-main",
+        "Region": "eu-west-1",
+        "Arn": "arn:aws:lambda:eu-west-1:030458456278:function:projetdevopsd832ff70-main",
+        "Name": "projetdevopsd832ff70-main",
+        "LambdaExecutionRole": "projetdevopsLambdaRole85815a8c-main"
+      },
+      "lastPushDirHash": "ZzdpnJDuifOlPglQPTAxy7ZE8fQ="
+    }
+  },
+  "storage": {
+    "dynamoffbc75dd": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-projetdevops-main-150900-deployment/amplify-cfn-templates/storage/dynamoffbc75dd-cloudformation-template.json",
+        "logicalId": "storagedynamoffbc75dd"
+      },
+      "lastPushTimeStamp": "2023-12-21T14:22:35.814Z",
+      "output": {
+        "PartitionKeyName": "id",
+        "SortKeyName": "username",
+        "SortKeyType": "S",
+        "Region": "eu-west-1",
+        "Arn": "arn:aws:dynamodb:eu-west-1:030458456278:table/users-main",
+        "StreamArn": "arn:aws:dynamodb:eu-west-1:030458456278:table/users-main/stream/2023-12-21T14:19:41.657",
+        "PartitionKeyType": "N",
+        "Name": "users-main"
+      },
+      "lastPushDirHash": "A+raH3KkWb+mwccEtDAAlMXgvkQ="
+    },
+    "usersbis": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-projetdevops-main-150900-deployment/amplify-cfn-templates/storage/usersbis-cloudformation-template.json",
+        "logicalId": "storageusersbis"
+      },
+      "lastPushTimeStamp": "2023-12-21T14:22:35.814Z",
+      "output": {
+        "PartitionKeyName": "id",
+        "Region": "eu-west-1",
+        "Arn": "arn:aws:dynamodb:eu-west-1:030458456278:table/usersbis-main",
+        "StreamArn": "arn:aws:dynamodb:eu-west-1:030458456278:table/usersbis-main/stream/2023-12-21T14:19:41.248",
+        "PartitionKeyType": "S",
+        "Name": "usersbis-main"
+      },
+      "lastPushDirHash": "O/O0FJ7RQHZh1502FHoGG5yKJiE="
+    }
+  }
+}

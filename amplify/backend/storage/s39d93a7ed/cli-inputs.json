@@ -1,0 +1,14 @@
+{
+  "resourceName": "s39d93a7ed",
+  "policyUUID": "9d93a7ed",
+  "bucketName": "projetdevopsfa74cd2062494b94a7ca4ad5e10ed47a",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "projetdevopsd832ff70",
+  "groupAccess": {}
+}

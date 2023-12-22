@@ -1,0 +1,11 @@
+{
+  "httpMethod": "POST",
+  "path": "/updates",
+  "queryStringParameters": {
+    "limit": "10"
+  },
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": "{\"id\": \"432d5424-212d-4809-9d37-ca0b0134efe3\", \"family_name\": \"Doe\", \"name\": \"John\", \"email\": \"john.doe@example.com\"}"
+}

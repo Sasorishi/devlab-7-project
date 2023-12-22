@@ -1,0 +1,14 @@
+{
+  "resourceName": "dynamoffbc75dd",
+  "tableName": "users",
+  "partitionKey": {
+    "fieldName": "id",
+    "fieldType": "number"
+  },
+  "sortKey": {
+    "fieldName": "username",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}

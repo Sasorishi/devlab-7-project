@@ -1,0 +1,179 @@
+{
+  "api": {
+    "apib7ad3daa": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "getUsers"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "projetdevopsd832ff70"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "auth": {
+    "projetdevops7098afb4": {
+      "customAuth": false,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "projetdevops7098afb4PostConfirmation",
+          "triggerProvider": "Cognito"
+        }
+      ],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OPTIONAL",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL",
+          "FAMILY_NAME",
+          "NAME"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
+    }
+  },
+  "function": {
+    "getUsers": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "dynamoffbc75dd"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "projetdevops7098afb4PostConfirmation": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "usersbis"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "projetdevopsd832ff70": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "usersbis"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_getUsers_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getUsers"
+        }
+      ]
+    },
+    "AMPLIFY_function_getUsers_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getUsers"
+        }
+      ]
+    },
+    "AMPLIFY_function_projetdevops7098afb4PostConfirmation_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "projetdevops7098afb4PostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_projetdevops7098afb4PostConfirmation_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "projetdevops7098afb4PostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_projetdevopsd832ff70_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "projetdevopsd832ff70"
+        }
+      ]
+    },
+    "AMPLIFY_function_projetdevopsd832ff70_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "projetdevopsd832ff70"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "dynamoffbc75dd": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    },
+    "usersbis": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    }
+  }
+}

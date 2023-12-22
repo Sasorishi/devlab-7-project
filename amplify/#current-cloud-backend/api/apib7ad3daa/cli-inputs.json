@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "paths": {
+    "/users": {
+      "name": "/users",
+      "lambdaFunction": "getUsers",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/updates": {
+      "name": "/updates",
+      "lambdaFunction": "projetdevopsd832ff70",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create"
+        ]
+      }
+    }
+  }
+}
