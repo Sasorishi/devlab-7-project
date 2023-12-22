@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { ChromePicker } from 'react-color';
+import React, { useState } from "react";
+import { ChromePicker } from "react-color";
 
 const ColorPickerComponent = ({ onColorChange }) => {
-  const [color, setColor] = useState('#ffffff');
+  const [color, setColor] = useState("#ffffff");
 
   const handleChange = (newColor) => {
     setColor(newColor.hex);
@@ -12,7 +12,7 @@ const ColorPickerComponent = ({ onColorChange }) => {
   return (
     <div>
       <ChromePicker color={color} onChange={handleChange} />
-      <p>Selected Color: {color}</p>
+      <p>Couleur selectionné: {color}</p>
     </div>
   );
 };
