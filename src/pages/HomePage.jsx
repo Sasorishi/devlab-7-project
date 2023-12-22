@@ -1,14 +1,12 @@
-import './App.css'
-
 import React from 'react';
 
-import Home from './Home';
-import Footer from './Footer';
+import Header from '../components/layout/HeaderLayout';
+import Footer from '../components/layout/FooterLayout';
 
 function HomePage() {
     return (
         <>
-            <Home />
+            <Header />
             <Footer />
         </>
     );

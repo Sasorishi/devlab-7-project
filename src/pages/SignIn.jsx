@@ -1,34 +1,7 @@
-import './App.css'
-import { useState, useEffect } from 'react';
-import { Auth } from 'aws-amplify';
-import {useNavigate} from "react-router-dom";
 import React from 'react'
-import ToastComponent from './components/ToastComponent';
+import ToastComponent from '../components/ToastComponent';
 
 function SignIn() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState(null);
-    const navigate = useNavigate();
-
-    const closeToast = () => {
-        setError(null);
-    };
-
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        try {
-            const signInResponse = await Auth.signIn(email, password);
-            navigate('/profile');
-        } catch (error) {
-            console.error('Erreur lors de la connexion:', error);
-            setError('Erreur lors de connexion: ' + error.message);
-            setTimeout(() => {
-                closeToast();
-            }, 2500);
-        }
-    };
-
     return (
         <section className="bg-gray-50 dark:bg-gray-900">
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
