@@ -1,5 +1,5 @@
 import "./App.css";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/layout/NavbarLayout";
@@ -11,22 +11,39 @@ import Profile from "./pages/Profile";
 import ConfirmSignUp from "./pages/ConfirmAuth";
 import Update from "./pages/Update";
 import BuilderChart from "./pages/BuilderChart";
+import Loading from "./components/layout/LoadingLayout";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const simulateAsyncLoad = async () => {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      setLoading(false);
+    };
+    simulateAsyncLoad();
+  }, []);
+
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/confirmsignup" element={<ConfirmSignUp />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/update" element={<Update />} />
-        <Route path="/builder_chart" element={<BuilderChart />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <>
+      {loading ? (
+        <Loading />
+      ) : (
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/confirmsignup" element={<ConfirmSignUp />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/update" element={<Update />} />
+            <Route path="/builder_chart" element={<BuilderChart />} />
+          </Routes>
+          <Footer />
+        </Router>
+      )}
+    </>
   );
 }
 
