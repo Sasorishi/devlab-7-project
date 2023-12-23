@@ -1,23 +1,46 @@
-import React from "react";
+export const barChartData = (datasetNumber, parsedDataset) => {
+  switch (datasetNumber) {
+    case 1:
+      const groupedData = parsedDataset.reduce((result, item) => {
+        const dateMes = item.date_mes;
 
-export const barChartData = {
-  labels: ["Label 1", "Label 2", "Label 3", "Label 4"],
-  datasets: [
-    {
-      label: "Dataset 1",
-      backgroundColor: "rgba(75,192,192,0.4)",
-      borderColor: "rgba(75,192,192,1)",
-      borderWidth: 1,
-      data: [10, 20, 15, 25],
-    },
-    {
-      label: "Dataset 2",
-      backgroundColor: "rgba(255,99,132,0.4)",
-      borderColor: "rgba(255,99,132,1)",
-      borderWidth: 1,
-      data: [5, 15, 10, 20],
-    },
-  ],
+        if (result[dateMes]) {
+          result[dateMes].push(item);
+        } else {
+          result[dateMes] = [item];
+        }
+
+        return result;
+      }, {});
+
+      return {
+        labels: Object.keys(groupedData),
+        datasets: [
+          {
+            label: "Nombre de places",
+            backgroundColor: "rgba(75,192,192,0.4)",
+            borderColor: "rgba(75,192,192,1)",
+            borderWidth: 1,
+            data: Object.entries(groupedData).map(([dateMes, items]) => {
+              return items.reduce((total, item) => total + item.nb_place, 0);
+            }),
+          },
+        ],
+      };
+    default:
+      return {
+        labels: ["Label 1", "Label 2", "Label 3", "Label 4"],
+        datasets: [
+          {
+            label: "Dataset 1",
+            backgroundColor: "rgba(75,192,192,0.4)",
+            borderColor: "rgba(75,192,192,1)",
+            borderWidth: 1,
+            data: [10, 20, 15, 25],
+          },
+        ],
+      };
+  }
 };
 
 export const stackedLineChartData = {

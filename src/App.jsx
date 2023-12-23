@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/layout/NavbarLayout";
 import Footer from "./components/layout/FooterLayout";
+import Loading from "./components/layout/LoadingLayout";
+
 import HomePage from "./pages/HomePage";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
@@ -11,7 +13,7 @@ import Profile from "./pages/Profile";
 import ConfirmSignUp from "./pages/ConfirmAuth";
 import Update from "./pages/Update";
 import BuilderChart from "./pages/BuilderChart";
-import Loading from "./components/layout/LoadingLayout";
+import LoadData from "./pages/LoadData";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -39,6 +41,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/update" element={<Update />} />
             <Route path="/builder_chart" element={<BuilderChart />} />
+            <Route path="/load_data" element={<LoadData />} />
           </Routes>
           <Footer />
         </Router>
