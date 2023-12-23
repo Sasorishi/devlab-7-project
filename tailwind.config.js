@@ -8,6 +8,11 @@ export default {
         secondary: "var(--secondary-color)",
         accent: "var(--accent-color)",
       },
+      textColor: {
+        primary: "var(--primary-color)",
+        secondary: "var(--secondary-color)",
+        accent: "var(--accent-color)",
+      },
     },
   },
   plugins: [],
