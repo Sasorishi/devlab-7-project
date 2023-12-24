@@ -32,14 +32,14 @@ const ChartComponent = ({ title, width, height, dataset, numberDataset }) => {
     parsedDataset = dataset;
   } else {
     return (
-      <div className="w-full max-w-md mx-auto p-6 bg-accent border border-gray-200 rounded-lg shadow">
+      <div className="w-full max-w-md mx-auto p-6 bg-white border border-gray-200 rounded-lg shadow">
         <p>Dataset is not a valid JSON string or array.</p>
       </div>
     );
   }
 
   return (
-    <div className="w-full max-w-md mx-auto p-6 bg-accent border border-gray-200 rounded-lg shadow">
+    <div className="box mx-auto p-6 bg-white border border-gray-200 rounded-lg shadow">
       <h5 className="mb-10 text-center font-bold tracking-tight text-gray-900">
         {title ? title : "Aucun titre"}
       </h5>

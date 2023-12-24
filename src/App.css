@@ -7,3 +7,13 @@
   --secondary-color: #157e53;
   --accent-color: #fdc914;
 }
+
+.box {
+  width: 100%;
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
+}
