@@ -32,36 +32,44 @@ function BuilderChart() {
         <div className="grid grid-cols-4 gap-4 justify-center my-5 w-full">
           {/* <ColorPicker onColorChange={handleColorChange} /> */}
           <Chart
-            type="BarChart"
-            title={title}
+            type="bar"
+            title="Nombre de place par année"
             width={250}
             height={200}
             dataset={jsonData}
             numberDataset={numberDataset}
+            field_1={"date_mes"}
+            field_2={"nb_place"}
+            labelValue={"Nombre de places"}
           />
           <Chart
-            type="BarChart"
-            title={title}
+            type="pie"
+            title="Les types de bornes"
             width={250}
             height={200}
             dataset={jsonData}
             numberDataset={numberDataset}
+            field={"type_borne"}
           />
           <Chart
-            type="BarChart"
-            title={title}
+            type="bar"
+            title="Nombre de accès recharge"
             width={250}
             height={200}
             dataset={jsonData}
             numberDataset={numberDataset}
+            field={"acces_recharge"}
+            labelValue={"Nombre de accès recharge"}
           />
           <Chart
-            type="BarChart"
-            title={title}
+            type="line"
+            title="Évolution de bornes par année"
             width={250}
             height={200}
             dataset={jsonData}
             numberDataset={numberDataset}
+            field={"date_mes"}
+            labelValue={"Nombre de bornes"}
           />
         </div>
         {/* <div className="flex flex-row gap-4 justify-center">

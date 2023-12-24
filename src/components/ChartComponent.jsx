@@ -7,14 +7,27 @@ import ScatterChart from "./chartComponents/ScatterChartComponent";
 import StackedLineChart from "./chartComponents/StackedLineChartComponent";
 import {
   barChartData,
+  lineChartData,
   stackedLineChartData,
   pieChartData,
   radarChartData,
   scatterChartData,
 } from "./DataChartComponent";
 
-const ChartComponent = ({ title, width, height, dataset, numberDataset }) => {
+const ChartComponent = ({
+  type,
+  title,
+  width,
+  height,
+  dataset,
+  numberDataset,
+  field,
+  field_1,
+  field_2,
+  labelValue,
+}) => {
   let parsedDataset;
+  let chartComponent;
 
   if (typeof dataset === "string") {
     try {
@@ -38,25 +51,70 @@ const ChartComponent = ({ title, width, height, dataset, numberDataset }) => {
     );
   }
 
+  switch (type) {
+    case "bar":
+      chartComponent = (
+        <BarChart
+          data={barChartData(
+            numberDataset,
+            parsedDataset,
+            field,
+            field_1,
+            field_2,
+            labelValue
+          )}
+          width={width}
+          height={height}
+        />
+      );
+      break;
+    case "line":
+      chartComponent = (
+        <LineChart
+          data={pieChartData(numberDataset, parsedDataset, field, labelValue)}
+          width={width}
+          height={height}
+        />
+      );
+      break;
+    case "pie":
+      chartComponent = (
+        <PieChart
+          data={pieChartData(numberDataset, parsedDataset, field)}
+          width={width}
+          height={height}
+        />
+      );
+      break;
+    case "radar":
+      chartComponent = (
+        <RadarChart data={radarChartData} width={width} height={height} />
+      );
+      break;
+    case "scatter":
+      chartComponent = (
+        <ScatterChart data={scatterChartData} width={width} height={height} />
+      );
+      break;
+    case "stackedLine":
+      chartComponent = (
+        <StackedLineChart
+          data={stackedLineChartData}
+          width={width}
+          height={height}
+        />
+      );
+      break;
+    default:
+      chartComponent = null; // ou un composant par défaut si le type n'est pas reconnu
+  }
+
   return (
     <div className="box mx-auto p-6 bg-white border border-gray-200 rounded-lg shadow">
       <h5 className="mb-10 text-center font-bold tracking-tight text-gray-900">
         {title ? title : "Aucun titre"}
       </h5>
-      <BarChart
-        data={barChartData(numberDataset, parsedDataset)}
-        width={width}
-        height={height}
-      />
-      {/* <LineChart data={stackedLineChartData} width={width} height={height} />
-      <PieChart data={pieChartData} width={width} height={height} />
-      <RadarChart data={radarChartData} width={width} height={height} />
-      <ScatterChart data={scatterChartData} width={width} height={height} />
-      <StackedLineChart
-        data={stackedLineChartData}
-        width={width}
-        height={height}
-      /> */}
+      {chartComponent}
     </div>
   );
 };
