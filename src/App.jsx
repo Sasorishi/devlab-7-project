@@ -2,6 +2,9 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import Navbar from "./components/layout/NavbarLayout";
 import Footer from "./components/layout/FooterLayout";
 import Loading from "./components/layout/LoadingLayout";
@@ -16,6 +19,8 @@ import BuilderChart from "./pages/BuilderChart";
 import LoadData from "./pages/LoadData";
 
 function App() {
+  AOS.init();
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
