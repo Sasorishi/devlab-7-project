@@ -7,10 +7,10 @@ function NavbarLayout() {
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img
             src="src/assets/imgs/logo-data.png"
-            className="h-14"
+            className="h-10"
             alt="Data-Issy"
           />
-          <span className="text-black self-center text-2xl font-semibold whitespace-nowrap">
+          <span className="text-black font-thin self-center text-2xl whitespace-nowrap">
             Graph Maker
           </span>
         </a>
