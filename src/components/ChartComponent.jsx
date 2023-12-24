@@ -110,7 +110,7 @@ const ChartComponent = ({
   }
 
   return (
-    <div className="box mx-auto p-6 bg-white border border-gray-200 rounded-lg shadow">
+    <div className="mx-auto">
       <h5 className="mb-10 text-center font-bold tracking-tight text-gray-900">
         {title ? title : "Aucun titre"}
       </h5>

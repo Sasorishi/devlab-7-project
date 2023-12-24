@@ -29,48 +29,84 @@ function BuilderChart() {
         </h1>
       </div>
       <div className="container mx-auto h-screen">
-        <div className="grid grid-cols-4 gap-4 justify-center my-5 w-full">
+        <div className="grid grid-cols-4 gap-8 justify-center my-5 w-full">
           {/* <ColorPicker onColorChange={handleColorChange} /> */}
-          <Chart
-            type="bar"
-            title="Nombre de place par année"
-            width={250}
-            height={200}
-            dataset={jsonData}
-            numberDataset={numberDataset}
-            field_1={"date_mes"}
-            field_2={"nb_place"}
-            labelValue={"Nombre de places"}
-          />
-          <Chart
-            type="pie"
-            title="Les types de bornes"
-            width={250}
-            height={200}
-            dataset={jsonData}
-            numberDataset={numberDataset}
-            field={"type_borne"}
-          />
-          <Chart
-            type="bar"
-            title="Nombre de accès recharge"
-            width={250}
-            height={200}
-            dataset={jsonData}
-            numberDataset={numberDataset}
-            field={"acces_recharge"}
-            labelValue={"Nombre de accès recharge"}
-          />
-          <Chart
-            type="line"
-            title="Évolution de bornes par année"
-            width={250}
-            height={200}
-            dataset={jsonData}
-            numberDataset={numberDataset}
-            field={"date_mes"}
-            labelValue={"Nombre de bornes"}
-          />
+          <div
+            data-aos="fade-up"
+            data-aos-easing="linear"
+            data-aos-delay="600"
+            data-aos-offset="0"
+          >
+            <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white">
+              <Chart
+                type="bar"
+                title="Nombre de place par année"
+                width={250}
+                height={200}
+                dataset={jsonData}
+                numberDataset={numberDataset}
+                field_1={"date_mes"}
+                field_2={"nb_place"}
+                labelValue={"Nombre de places"}
+              />
+            </div>
+          </div>
+          <div
+            data-aos="fade-up"
+            data-aos-easing="linear"
+            data-aos-delay="600"
+            data-aos-offset="0"
+          >
+            <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white">
+              <Chart
+                type="pie"
+                title="Les types de bornes"
+                width={250}
+                height={200}
+                dataset={jsonData}
+                numberDataset={numberDataset}
+                field={"type_borne"}
+              />
+            </div>
+          </div>
+          <div
+            data-aos="fade-up"
+            data-aos-easing="linear"
+            data-aos-delay="700"
+            data-aos-offset="0"
+          >
+            <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white">
+              <Chart
+                type="bar"
+                title="Nombre de accès recharge"
+                width={250}
+                height={200}
+                dataset={jsonData}
+                numberDataset={numberDataset}
+                field={"acces_recharge"}
+                labelValue={"Nombre de accès recharge"}
+              />
+            </div>
+          </div>
+          <div
+            data-aos="fade-up"
+            data-aos-easing="linear"
+            data-aos-delay="800"
+            data-aos-offset="0"
+          >
+            <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white">
+              <Chart
+                type="line"
+                title="Évolution de bornes par année"
+                width={250}
+                height={200}
+                dataset={jsonData}
+                numberDataset={numberDataset}
+                field={"date_mes"}
+                labelValue={"Nombre de bornes"}
+              />
+            </div>
+          </div>
         </div>
         {/* <div className="flex flex-row gap-4 justify-center">
           <Chart
