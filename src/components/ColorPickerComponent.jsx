@@ -12,7 +12,7 @@ const ColorPickerComponent = ({ onColorChange }) => {
   return (
     <div>
       <ChromePicker color={color} onChange={handleChange} />
-      <p>Couleur selectionné: {color}</p>
+      {/* <p>Couleur selectionné: {color}</p> */}
     </div>
   );
 };

@@ -1,12 +1,13 @@
+@import "aos/dist/aos.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "aos/dist/aos.css";
 
 :root {
   --primary-color: #6daddc;
   --secondary-color: #157e53;
   --accent-color: #fdc914;
+  --gray-color: #f5f5f5;
 }
 
 .box {
@@ -16,5 +17,121 @@
 
 .box:hover {
   transform: scale(1.1);
-  transition: transform 0.3s ease; /* Adjust the duration and easing as needed */
+  transition: all 1s ease-out;
+}
+
+.chrome-picker {
+  box-shadow: none !important;
+  background: var(--gray-color) !important;
+}
+
+.menu-container {
+  display: flex;
+  padding: 0.8rem;
+  position: absolute;
+  z-index: 10;
+}
+
+.menu-1 {
+  flex-basis: 20%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 1rem;
+  background: #f5f5f5;
+  font-family: "Arial", sans-serif;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu-1-containt {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(0);
+}
+
+.menu-1-containt.hidden {
+  transform: translateX(-100%);
+}
+
+h1 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon {
+  transition: transform 0.3s ease;
+  fill: var(--accent-color);
+}
+
+.icon-hide {
+  transform: rotate(0deg);
+}
+
+.icon-show {
+  transform: rotate(180deg);
+}
+
+label {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.menu-1 h1,
+.menu-1 label,
+.menu-2 h1,
+.menu-2 label {
+  margin: 0.5rem 0;
+  color: #6daddc;
+}
+
+/* PATIE 1 Menu */
+
+.menu-1 input[type="button"],
+.menu-1 select {
+  border: 2px solid #ddd;
+  color: white;
+  border-radius: 0.5rem;
+  padding: 0.625rem;
+  margin: 0.5rem 0;
+  background: rgb(107 114 128);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* PATIE 2 Menu */
+
+.menu-2 input[type="color"],
+.menu-2 select,
+.menu-2 input[type="text"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.menu-2 input[type="submit"] {
+  width: auto;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0;
+  border: none;
+  border-radius: 20px;
+  background-color: #6daddc;
+  border: 2px solid #6daddc;
+  color: white;
+  cursor: pointer;
+}
+
+.menu-2 input[type="submit"]:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #6daddc;
 }

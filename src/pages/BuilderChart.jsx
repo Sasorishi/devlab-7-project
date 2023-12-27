@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import ColorPicker from "../components/ColorPickerComponent";
 import Chart from "../components/ChartComponent";
+import Dashmenu from "../components/dashmenuComponents/DashmenuComponent";
 
 function BuilderChart() {
   const location = useLocation();
@@ -23,12 +24,13 @@ function BuilderChart() {
 
   return (
     <div className="mx-auto bg-accent">
+      <Dashmenu />
       <div className="flex justify-center p-5">
         <h1 className="text-white uppercase">
           Chart Builder - Dataset {numberDataset}
         </h1>
       </div>
-      <div className="container mx-auto h-screen">
+      <div className="container mx-auto h-screen p-5">
         <div className="grid grid-cols-4 gap-8 justify-center my-5 w-full">
           {/* <ColorPicker onColorChange={handleColorChange} /> */}
           <div
