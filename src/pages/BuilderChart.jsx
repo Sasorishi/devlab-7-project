@@ -10,7 +10,6 @@ function BuilderChart() {
   // const [title, setTitle] = useState("");
   const [jsonData, setJsonData] = useState(null);
   const [numberDataset, setNumberDataset] = useState(0);
-  const [labelDataset, setLabelDataset] = useState(0);
 
   // const handleColorChange = (newColor) => {
   //   setSelectedColor(newColor);
@@ -20,18 +19,6 @@ function BuilderChart() {
     if (location.state) {
       setJsonData(location.state.jsonData);
       setNumberDataset(location.state.numberDataset);
-
-      switch (location.state.numberDataset) {
-        case 1:
-          setLabelDataset(
-            "Réseau de bornes de recharge pour véhicule éléctrique"
-          );
-          break;
-
-        default:
-          setLabelDataset("Défaut");
-          break;
-      }
     }
   }, [location.state]);
 
@@ -42,7 +29,6 @@ function BuilderChart() {
         <h1 className="text-white uppercase">
           Chart Builder - Dataset {numberDataset}
         </h1>
-        <p className="text-black font-thin">{labelDataset}</p>
       </div>
       <div className="container mx-auto min-h-screen p-5">
         <div className="grid grid-cols-1 lg:grid-cols-4 sm:grid-cols-2 gap-3 sm:gap-8 justify-center my-5 w-full">
@@ -132,7 +118,7 @@ function BuilderChart() {
             data-aos-offset="0"
           >
             <div className="mx-auto w-full p-6 border border-gray-200 rounded-lg shadow-xl bg-white">
-              <Map />
+              <Map title="Géolocalisation des bornes" jsonDataProp={jsonData} />
             </div>
           </div>
         </div>
