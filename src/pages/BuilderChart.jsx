@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import ColorPicker from "../components/ColorPickerComponent";
 import Chart from "../components/ChartComponent";
-import Dashmenu from "../components/dashmenuComponents/DashmenuComponent";
 
 function BuilderChart() {
   const location = useLocation();
@@ -10,7 +9,6 @@ function BuilderChart() {
   const [title, setTitle] = useState("");
   const [jsonData, setJsonData] = useState(null);
   const [numberDataset, setNumberDataset] = useState(0);
-  const [labelDataset, setLabelDataset] = useState(0);
 
   const handleColorChange = (newColor) => {
     setSelectedColor(newColor);
@@ -20,31 +18,17 @@ function BuilderChart() {
     if (location.state) {
       setJsonData(location.state.jsonData);
       setNumberDataset(location.state.numberDataset);
-
-      switch (location.state.numberDataset) {
-        case 1:
-          setLabelDataset(
-            "Réseau de bornes de recharge pour véhicule éléctrique"
-          );
-          break;
-
-        default:
-          setLabelDataset("Défaut");
-          break;
-      }
     }
   }, [location.state]);
 
   return (
     <div className="mx-auto bg-accent">
-      <Dashmenu />
-      <div className="flex flex-col items-center justify-center p-5">
+      <div className="flex justify-center p-5">
         <h1 className="text-white uppercase">
           Chart Builder - Dataset {numberDataset}
         </h1>
-        <p className="text-black font-thin">{labelDataset}</p>
       </div>
-      <div className="container mx-auto h-screen p-5">
+      <div className="container mx-auto h-screen">
         <div className="grid grid-cols-4 gap-8 justify-center my-5 w-full">
           {/* <ColorPicker onColorChange={handleColorChange} /> */}
           <div
