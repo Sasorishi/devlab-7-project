@@ -25,21 +25,25 @@ const DashmenuComponent = () => {
   return (
     <div className="menu-container">
       <form className="menu-1" onSubmit={handleSubmit}>
-        <h1 onClick={toggleFormVisibility}>
-          Configuration
-          <div
-            className={`ml-5 icon ${isFormVisible ? "icon-hide" : "icon-show"}`}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24"
-              viewBox="0 -960 960 960"
-              width="24"
+        <div className="cursor-pointer" onClick={toggleFormVisibility}>
+          <h1>
+            Configuration
+            <div
+              className={`ml-5 icon ${
+                isFormVisible ? "icon-hide" : "icon-show"
+              }`}
             >
-              <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
-            </svg>
-          </div>
-        </h1>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24"
+                viewBox="0 -960 960 960"
+                width="24"
+              >
+                <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+              </svg>
+            </div>
+          </h1>
+        </div>
 
         {isFormVisible && (
           <div className={`menu-1-containt ${isFormVisible ? "" : "hidden"}`}>
