@@ -1,12 +1,26 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import Dataset from "../assets/data/reseau-de-bornes-de-recharge-pour-vehicule-electrique.json";
 
 function LoadData() {
+  const location = useLocation();
   const [jsonData, setJsonData] = useState("");
   const [isValidJson, setIsValidJson] = useState(true);
   const [numberDataset, setNumberDataset] = useState(0);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (location.state) {
+      switch (location.state.param) {
+        case 1:
+          handlePaste(location.state.param);
+          break;
+        default:
+          handlePaste(location.state.param);
+          break;
+      }
+    }
+  }, [location.state]);
 
   const handleTextareaChange = (event) => {
     setJsonData(event.target.value);
@@ -38,22 +52,8 @@ function LoadData() {
           htmlFor="message"
           className="block mb-2 text-sm font-medium text-gray-900"
         >
-          Le JSON
+          Générer les graphes à partir des données
         </label>
-        <div className="mb-5 flex gap-4">
-          <button
-            className="p-2 bg-green-500 text-white rounded-lg hover:bg-green-600 focus:outline-none focus:ring focus:border-green-300"
-            onClick={() => handlePaste(1)}
-          >
-            Dataset 1
-          </button>
-          <button
-            className="p-2 bg-green-500 text-white rounded-lg hover:bg-green-600 focus:outline-none focus:ring focus:border-green-300"
-            onClick={() => handlePaste(2)}
-          >
-            Dataset 2
-          </button>
-        </div>
         <textarea
           id="message"
           rows="14"
@@ -65,10 +65,10 @@ function LoadData() {
           onChange={handleTextareaChange}
         ></textarea>
         <button
-          className="mt-4 p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+          className="uppercase mt-4 p-2 bg-secondary text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
           onClick={handleSubmit}
         >
-          Valider
+          valider
         </button>
       </div>
       {!isValidJson && (
