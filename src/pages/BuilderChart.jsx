@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import ColorPicker from "../components/ColorPickerComponent";
 import Chart from "../components/ChartComponent";
 import Dashmenu from "../components/dashmenuComponents/DashmenuComponent";
+import Map from "../components/chartComponents/MapComponent";
 
 function BuilderChart() {
   const location = useLocation();
@@ -122,6 +123,11 @@ function BuilderChart() {
                 labelValue={"Nombre de bornes"}
               />
             </div>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 justify-center my-5 w-full">
+          <div className="mx-auto w-full p-6 border border-gray-200 rounded-lg shadow-xl bg-white">
+            <Map />
           </div>
         </div>
         {/* <div className="flex flex-row gap-4 justify-center">
