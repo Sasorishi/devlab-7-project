@@ -135,3 +135,40 @@ label {
   color: black;
   border: 2px solid #6daddc;
 }
+
+/* Select Data Component */
+
+#image-track {
+  display: flex;
+  gap: 4vmin;
+  position: absolute;
+  left: 40%;
+  top: 50%;
+  transform: translate(0%, -50%);
+  user-select: none; /* -- Prevent image highlighting -- */
+}
+
+.image {
+  width: 40vmin;
+  height: 56vmin;
+  object-fit: cover;
+  object-position: 100% center;
+}
+
+.image-label {
+  width: 40vmin;
+  text-align: center;
+}
+
+.image-container {
+  position: relative;
+}
+
+.image-text {
+  position: absolute;
+  bottom: 10px; /* Ajustez la position verticale selon vos besoins */
+  left: 10px; /* Ajustez la position horizontale selon vos besoins */
+  color: white; /* Couleur du texte */
+  font-size: 18px; /* Taille de la police */
+  font-weight: bold; /* Poids de la police */
+}

@@ -17,6 +17,7 @@ import ConfirmSignUp from "./pages/ConfirmAuth";
 import Update from "./pages/Update";
 import BuilderChart from "./pages/BuilderChart";
 import LoadData from "./pages/LoadData";
+import SelectData from "./pages/SelectData";
 
 function App() {
   AOS.init();
@@ -47,6 +48,7 @@ function App() {
             <Route path="/update" element={<Update />} />
             <Route path="/builder_chart" element={<BuilderChart />} />
             <Route path="/load_data" element={<LoadData />} />
+            <Route path="/select_data" element={<SelectData />} />
           </Routes>
           <Footer />
         </Router>
