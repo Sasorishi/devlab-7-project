@@ -9,6 +9,7 @@ import Navbar from "./components/layout/NavbarLayout";
 import Footer from "./components/layout/FooterLayout";
 import Loading from "./components/layout/LoadingLayout";
 
+import EarthAnimation from "./pages/EarthAnimation";
 import HomePage from "./pages/HomePage";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
@@ -40,12 +41,13 @@ function App() {
         <Router>
           <Navbar />
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/signin" element={<SignIn />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/confirmsignup" element={<ConfirmSignUp />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/update" element={<Update />} />
+            <Route path="/" element={<EarthAnimation />} />
+            {/* <Route path="/" element={<HomePage />} /> */}
+            {/* <Route path="/signin" element={<SignIn />} /> */}
+            {/* <Route path="/signup" element={<SignUp />} /> */}
+            {/* <Route path="/confirmsignup" element={<ConfirmSignUp />} /> */}
+            {/* <Route path="/profile" element={<Profile />} /> */}
+            {/* <Route path="/update" element={<Update />} /> */}
             <Route path="/builder_chart" element={<BuilderChart />} />
             <Route path="/load_data" element={<LoadData />} />
             <Route path="/select_data" element={<SelectData />} />
