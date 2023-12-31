@@ -190,10 +190,10 @@ function EarthAnimation() {
     });
   }, []);
 
-  document.body.classList.add("overflow-hidden");
+  // document.body.classList.add("overflow-hidden");
 
   return (
-    <div>
+    <div className="overflow-hidden">
       <div id="overlay">
         <div className="bg-white p-8 rounded-lg shadow-lg">
           <img src={Logo} className="h-200" alt="Data-Issy" />
