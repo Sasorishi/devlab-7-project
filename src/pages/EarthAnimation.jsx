@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import TWEEN from "@tweenjs/tween.js";
+import Logo from "../assets/imgs/logo-data.png";
 
 function EarthAnimation() {
   useEffect(() => {
@@ -195,11 +196,7 @@ function EarthAnimation() {
     <div>
       <div id="overlay">
         <div className="bg-white p-8 rounded-lg shadow-lg">
-          <img
-            src="src/assets/imgs/logo-data.png"
-            className="h-200"
-            alt="Data-Issy"
-          />
+          <img src={Logo} className="h-200" alt="Data-Issy" />
         </div>
         <button id="startButton">Découvrir</button>
       </div>
