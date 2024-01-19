@@ -6,15 +6,15 @@ import Map from "../components/chartComponents/MapComponent";
 
 function BuilderChart() {
   const location = useLocation();
-  const [selectedColor, setSelectedColor] = useState("#ffffff");
-  const [title, setTitle] = useState("");
+  // const [selectedColor, setSelectedColor] = useState("#ffffff");
+  // const [title, setTitle] = useState("");
   const [jsonData, setJsonData] = useState(null);
   const [numberDataset, setNumberDataset] = useState(0);
   const [labelDataset, setLabelDataset] = useState(0);
 
-  const handleColorChange = (newColor) => {
-    setSelectedColor(newColor);
-  };
+  // const handleColorChange = (newColor) => {
+  //   setSelectedColor(newColor);
+  // };
 
   useEffect(() => {
     if (location.state) {
@@ -36,7 +36,7 @@ function BuilderChart() {
   }, [location.state]);
 
   return (
-    <div className="mx-auto bg-accent mb-5">
+    <div className="mx-auto bg-accent mb-5 h-auto">
       <Dashmenu />
       <div className="flex flex-col items-center justify-center p-5">
         <h1 className="text-white uppercase">
@@ -44,15 +44,16 @@ function BuilderChart() {
         </h1>
         <p className="text-black font-thin">{labelDataset}</p>
       </div>
-      <div className="container mx-auto h-screen p-5">
-        <div className="grid grid-cols-4 gap-8 justify-center my-5 w-full">
+      <div className="container mx-auto min-h-screen p-5">
+        <div className="grid grid-cols-1 lg:grid-cols-4 sm:grid-cols-2 gap-3 sm:gap-8 justify-center my-5 w-full">
           <div
             data-aos="fade-up"
             data-aos-easing="linear"
-            data-aos-delay="600"
+            data-aos-delay="0"
             data-aos-offset="0"
+            data-aos-duration="100"
           >
-            <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white">
+            <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white w-full">
               <Chart
                 type="bar"
                 title="Nombre de place par année"
@@ -69,7 +70,7 @@ function BuilderChart() {
           <div
             data-aos="fade-up"
             data-aos-easing="linear"
-            data-aos-delay="600"
+            data-aos-delay="100"
             data-aos-offset="0"
           >
             <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white">
@@ -87,7 +88,7 @@ function BuilderChart() {
           <div
             data-aos="fade-up"
             data-aos-easing="linear"
-            data-aos-delay="700"
+            data-aos-delay="200"
             data-aos-offset="0"
           >
             <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white">
@@ -106,7 +107,7 @@ function BuilderChart() {
           <div
             data-aos="fade-up"
             data-aos-easing="linear"
-            data-aos-delay="800"
+            data-aos-delay="300"
             data-aos-offset="0"
           >
             <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white">
@@ -127,7 +128,7 @@ function BuilderChart() {
           <div
             data-aos="fade-up"
             data-aos-easing="linear"
-            data-aos-delay="600"
+            data-aos-delay="400"
             data-aos-offset="0"
           >
             <div className="mx-auto w-full p-6 border border-gray-200 rounded-lg shadow-xl bg-white">
