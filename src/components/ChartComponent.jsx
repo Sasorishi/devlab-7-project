@@ -5,6 +5,8 @@ import PieChart from "./chartComponents/PieChartComponent";
 import RadarChart from "./chartComponents/RadarChartComponent";
 import ScatterChart from "./chartComponents/ScatterChartComponent";
 import StackedLineChart from "./chartComponents/StackedLineChartComponent";
+import PolarAreaChart from "./chartComponents/PolarAreaChartComponent";
+import BubbleChart from "./chartComponents/BubbleChartComponent";
 import {
   barChartData,
   lineChartData,
@@ -12,6 +14,8 @@ import {
   pieChartData,
   radarChartData,
   scatterChartData,
+  polarAreaChartData,
+  bubbleChartData,
 } from "./DataChartComponent";
 
 const ChartComponent = ({
@@ -102,7 +106,24 @@ const ChartComponent = ({
           data={stackedLineChartData}
           width={width}
           height={height}
-          
+        />
+      );
+      break;
+    case "polarArea":
+      chartComponent = (
+        <PolarAreaChart
+          data={polarAreaChartData(numberDataset, parsedDataset, field)}
+          width={width}
+          height={height}
+        />
+      );
+      break;
+    case "bubble":
+      chartComponent = (
+        <BubbleChart
+          data={bubbleChartData(numberDataset, parsedDataset, field)}
+          width={width}
+          height={height}
         />
       );
       break;
