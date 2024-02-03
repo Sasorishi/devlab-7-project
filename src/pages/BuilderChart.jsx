@@ -136,6 +136,84 @@ function BuilderChart() {
             </div>
           </div>
         </div>
+        <div className="grid grid-cols-1 lg:grid-cols-4 sm:grid-cols-2 gap-3 sm:gap-8 justify-center my-5 w-full">
+          <div
+            data-aos="fade-up"
+            data-aos-easing="linear"
+            data-aos-delay="0"
+            data-aos-offset="0"
+            data-aos-duration="100"
+          >
+            <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white w-full">
+              <Chart
+                type="radar"
+                title="Capacité de charge"
+                width={250}
+                height={200}
+                dataset={jsonData}
+                numberDataset={numberDataset}
+                field_1={"date_mes"}
+                field_2={"nb_place"}
+                labelValue={"Nombre de places"}
+              />
+            </div>
+          </div>
+          <div
+            data-aos="fade-up"
+            data-aos-easing="linear"
+            data-aos-delay="100"
+            data-aos-offset="0"
+          >
+            <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white">
+              <Chart
+                type="polarArea"
+                title="Les différents opérateurs"
+                width={250}
+                height={200}
+                dataset={jsonData}
+                numberDataset={numberDataset}
+                field={"n_operateur"}
+              />
+            </div>
+          </div>
+          <div
+            data-aos="fade-up"
+            data-aos-easing="linear"
+            data-aos-delay="200"
+            data-aos-offset="0"
+          >
+            <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white">
+              <Chart
+                type="bubble"
+                title="Nombre total d'aménageurs"
+                width={250}
+                height={200}
+                dataset={jsonData}
+                numberDataset={numberDataset}
+                field={"n_amenageur"}
+              />
+            </div>
+          </div>
+          <div
+            data-aos="fade-up"
+            data-aos-easing="linear"
+            data-aos-delay="300"
+            data-aos-offset="0"
+          >
+            <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white">
+              <Chart
+                type="scatter"
+                title="Accessibilité par heures/jours"
+                width={250}
+                height={200}
+                dataset={jsonData}
+                numberDataset={numberDataset}
+                field={"date_mes"}
+                labelValue={"Nombre de bornes"}
+              />
+            </div>
+          </div>
+        </div>
         {/* <div className="flex flex-row gap-4 justify-center">
           <Chart
             type="BarChart"
