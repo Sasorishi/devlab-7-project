@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import * as d3 from "d3";
+// import GeoJsonData from "../../assets/data/quartiers_issy.geojson";
+import Nik from "../../assets/imgs/nik.png";
 
 const MapComponent = ({ jsonDataProp, title }) => {
   const [jsonData, setJsonData] = useState(null);
@@ -85,7 +87,7 @@ const MapComponent = ({ jsonDataProp, title }) => {
           );
       })
       .catch((error) =>
-        console.log("Erreur lors du chargement de la carte GeoJSON:", error)
+        console.error("Erreur lors du chargement de la carte GeoJSON:", error)
       );
   }, [jsonData]); // Se re-exécute lorsque jsonData change
 
@@ -94,7 +96,10 @@ const MapComponent = ({ jsonDataProp, title }) => {
       <h5 className="mb-10 text-center font-bold tracking-tight text-gray-900">
         {title ? title : "Aucun titre"}
       </h5>
-      <div id="map-issy" className="h-auto" />
+      {/* <div id="map-issy" className="h-auto" /> */}
+      <div>
+        <img src={Nik} alt="" />
+      </div>
     </div>
   );
 };
