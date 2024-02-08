@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import Chart from "../components/ChartComponent";
 import Dashmenu from "../components/dashmenuComponents/DashmenuComponent";
 import Map from "../components/chartComponents/MapComponent";
+import Options from "../components/chartComponents/OptionsComponents";
 
 function BuilderChart() {
   const location = useLocation();
@@ -22,6 +23,15 @@ function BuilderChart() {
     }
   }, [location.state]);
 
+  // const exportChart = (chartId) => {
+  //   const chartContainer = document.getElementById(chartId);
+  //   if (chartContainer) {
+  //     htmlToImage.toBlob(chartContainer).then(function (blob) {
+  //       saveAs(blob, `${chartId}.png`);
+  //     });
+  //   }
+  // };
+
   return (
     <div className="mx-auto bg-accent mb-5 h-auto">
       <Dashmenu />
@@ -40,17 +50,20 @@ function BuilderChart() {
             data-aos-duration="100"
           >
             <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white w-full">
-              <Chart
-                type="bar"
-                title="Nombre de place par année"
-                width={250}
-                height={200}
-                dataset={jsonData}
-                numberDataset={numberDataset}
-                field_1={"date_mes"}
-                field_2={"nb_place"}
-                labelValue={"Nombre de places"}
-              />
+              <Options chartId={"chart-container-1"} />
+              <div id="chart-container-1">
+                <Chart
+                  type="bar"
+                  title="Nombre de place par année"
+                  width={250}
+                  height={200}
+                  dataset={jsonData}
+                  numberDataset={numberDataset}
+                  field_1={"date_mes"}
+                  field_2={"nb_place"}
+                  labelValue={"Nombre de places"}
+                />
+              </div>
             </div>
           </div>
           <div
@@ -60,15 +73,18 @@ function BuilderChart() {
             data-aos-offset="0"
           >
             <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white">
-              <Chart
-                type="pie"
-                title="Les types de bornes"
-                width={250}
-                height={200}
-                dataset={jsonData}
-                numberDataset={numberDataset}
-                field={"type_borne"}
-              />
+              <Options chartId={"chart-container-2"} />
+              <div id="chart-container-2">
+                <Chart
+                  type="pie"
+                  title="Les types de bornes"
+                  width={250}
+                  height={200}
+                  dataset={jsonData}
+                  numberDataset={numberDataset}
+                  field={"type_borne"}
+                />
+              </div>
             </div>
           </div>
           <div
@@ -78,16 +94,19 @@ function BuilderChart() {
             data-aos-offset="0"
           >
             <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white">
-              <Chart
-                type="bar"
-                title="Nombre de accès recharge"
-                width={250}
-                height={200}
-                dataset={jsonData}
-                numberDataset={numberDataset}
-                field={"acces_recharge"}
-                labelValue={"Nombre de accès recharge"}
-              />
+              <Options chartId={"chart-container-3"} />
+              <div id="chart-container-3">
+                <Chart
+                  type="bar"
+                  title="Nombre de accès recharge"
+                  width={250}
+                  height={200}
+                  dataset={jsonData}
+                  numberDataset={numberDataset}
+                  field={"acces_recharge"}
+                  labelValue={"Nombre de accès recharge"}
+                />
+              </div>
             </div>
           </div>
           <div
@@ -97,27 +116,31 @@ function BuilderChart() {
             data-aos-offset="0"
           >
             <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white">
-              <Chart
-                type="line"
-                title="Évolution de bornes par année"
-                width={250}
-                height={200}
-                dataset={jsonData}
-                numberDataset={numberDataset}
-                field={"date_mes"}
-                labelValue={"Nombre de bornes"}
-              />
+              <Options chartId={"chart-container-4"} />
+              <div id="chart-container-4">
+                <Chart
+                  type="line"
+                  title="Évolution de bornes par année"
+                  width={250}
+                  height={200}
+                  dataset={jsonData}
+                  numberDataset={numberDataset}
+                  field={"date_mes"}
+                  labelValue={"Nombre de bornes"}
+                />
+              </div>
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-1 justify-center my-5 w-full">
+        <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white w-full">
           <div
             data-aos="fade-up"
             data-aos-easing="linear"
             data-aos-delay="400"
             data-aos-offset="0"
           >
-            <div className="mx-auto w-full p-6 border border-gray-200 rounded-lg shadow-xl bg-white">
+            <Options chartId={"map-container"} />
+            <div id="map-container" className="mx-auto w-full p-6 bg-white">
               <Map title="Géolocalisation des bornes" jsonDataProp={jsonData} />
             </div>
           </div>
@@ -131,17 +154,20 @@ function BuilderChart() {
             data-aos-duration="100"
           >
             <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white w-full">
-              <Chart
-                type="radar"
-                title="Capacité de charge"
-                width={250}
-                height={200}
-                dataset={jsonData}
-                numberDataset={numberDataset}
-                field_1={"date_mes"}
-                field_2={"nb_place"}
-                labelValue={"Nombre de places"}
-              />
+              <Options chartId={"chart-container-5"} />
+              <div id="chart-container-5">
+                <Chart
+                  type="radar"
+                  title="Capacité de charge"
+                  width={250}
+                  height={200}
+                  dataset={jsonData}
+                  numberDataset={numberDataset}
+                  field_1={"date_mes"}
+                  field_2={"nb_place"}
+                  labelValue={"Nombre de places"}
+                />
+              </div>
             </div>
           </div>
           <div
@@ -151,15 +177,18 @@ function BuilderChart() {
             data-aos-offset="0"
           >
             <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white">
-              <Chart
-                type="polarArea"
-                title="Les différents opérateurs"
-                width={250}
-                height={200}
-                dataset={jsonData}
-                numberDataset={numberDataset}
-                field={"n_operateur"}
-              />
+              <Options chartId={"chart-container-6"} />
+              <div id="chart-container-6">
+                <Chart
+                  type="polarArea"
+                  title="Les différents opérateurs"
+                  width={250}
+                  height={200}
+                  dataset={jsonData}
+                  numberDataset={numberDataset}
+                  field={"n_operateur"}
+                />
+              </div>
             </div>
           </div>
           <div
@@ -169,15 +198,18 @@ function BuilderChart() {
             data-aos-offset="0"
           >
             <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white">
-              <Chart
-                type="bubble"
-                title="Nombre total d'aménageurs"
-                width={250}
-                height={200}
-                dataset={jsonData}
-                numberDataset={numberDataset}
-                field={"n_amenageur"}
-              />
+              <Options chartId={"chart-container-7"} />
+              <div id="chart-container-7">
+                <Chart
+                  type="bubble"
+                  title="Nombre total d'aménageurs"
+                  width={250}
+                  height={200}
+                  dataset={jsonData}
+                  numberDataset={numberDataset}
+                  field={"n_amenageur"}
+                />
+              </div>
             </div>
           </div>
           <div
@@ -187,16 +219,19 @@ function BuilderChart() {
             data-aos-offset="0"
           >
             <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white">
-              <Chart
-                type="scatter"
-                title="Accessibilité par heures/jours"
-                width={250}
-                height={200}
-                dataset={jsonData}
-                numberDataset={numberDataset}
-                field={"date_mes"}
-                labelValue={"Nombre de bornes"}
-              />
+              <Options chartId={"chart-container-8"} />
+              <div id="chart-container-8">
+                <Chart
+                  type="scatter"
+                  title="Accessibilité par heures/jours"
+                  width={250}
+                  height={200}
+                  dataset={jsonData}
+                  numberDataset={numberDataset}
+                  field={"date_mes"}
+                  labelValue={"Nombre de bornes"}
+                />
+              </div>
             </div>
           </div>
         </div>
