@@ -3,10 +3,7 @@ import { useLocation } from "react-router-dom";
 import Chart from "../components/ChartComponent";
 import Dashmenu from "../components/dashmenuComponents/DashmenuComponent";
 import Map from "../components/chartComponents/MapComponent";
-
-import * as htmlToImage from 'html-to-image';
-
-import { saveAs } from "file-saver";
+import Options from "../components/chartComponents/OptionsComponents";
 
 function BuilderChart() {
   const location = useLocation();
@@ -26,14 +23,14 @@ function BuilderChart() {
     }
   }, [location.state]);
 
-  const exportChart = (chartId) => {
-    const chartContainer = document.getElementById(chartId);
-    if (chartContainer) {
-      htmlToImage.toBlob(chartContainer).then(function (blob) {
-        saveAs(blob, `${chartId}.png`);
-      });
-    }
-  };
+  // const exportChart = (chartId) => {
+  //   const chartContainer = document.getElementById(chartId);
+  //   if (chartContainer) {
+  //     htmlToImage.toBlob(chartContainer).then(function (blob) {
+  //       saveAs(blob, `${chartId}.png`);
+  //     });
+  //   }
+  // };
 
   return (
     <div className="mx-auto bg-accent mb-5 h-auto">
@@ -53,6 +50,7 @@ function BuilderChart() {
             data-aos-duration="100"
           >
             <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white w-full">
+              <Options chartId={"chart-container-1"} />
               <div id="chart-container-1">
                 <Chart
                   type="bar"
@@ -66,15 +64,6 @@ function BuilderChart() {
                   labelValue={"Nombre de places"}
                 />
               </div>
-              <div className="text-center mt-3">
-                <button
-                  type="button"
-                  className="text-white bg-secondary hover:bg-accent focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5"
-                  onClick={() => exportChart("chart-container-1")}
-                >
-                  Export
-                </button>
-              </div>
             </div>
           </div>
           <div
@@ -84,6 +73,7 @@ function BuilderChart() {
             data-aos-offset="0"
           >
             <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white">
+              <Options chartId={"chart-container-2"} />
               <div id="chart-container-2">
                 <Chart
                   type="pie"
@@ -95,15 +85,6 @@ function BuilderChart() {
                   field={"type_borne"}
                 />
               </div>
-              <div className="text-center mt-3">
-                <button
-                  type="button"
-                  className="text-white bg-secondary hover:bg-accent focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5"
-                  onClick={() => exportChart("chart-container-2")}
-                >
-                  Export
-                </button>
-              </div>
             </div>
           </div>
           <div
@@ -113,6 +94,7 @@ function BuilderChart() {
             data-aos-offset="0"
           >
             <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white">
+              <Options chartId={"chart-container-3"} />
               <div id="chart-container-3">
                 <Chart
                   type="bar"
@@ -125,15 +107,6 @@ function BuilderChart() {
                   labelValue={"Nombre de accès recharge"}
                 />
               </div>
-              <div className="text-center mt-3">
-                <button
-                  type="button"
-                  className="text-white bg-secondary hover:bg-accent focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5"
-                  onClick={() => exportChart("chart-container-3")}
-                >
-                  Export
-                </button>
-              </div>
             </div>
           </div>
           <div
@@ -143,6 +116,7 @@ function BuilderChart() {
             data-aos-offset="0"
           >
             <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white">
+              <Options chartId={"chart-container-4"} />
               <div id="chart-container-4">
                 <Chart
                   type="line"
@@ -155,26 +129,18 @@ function BuilderChart() {
                   labelValue={"Nombre de bornes"}
                 />
               </div>
-              <div className="text-center mt-3">
-                <button
-                  type="button"
-                  className="text-white bg-secondary hover:bg-accent focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5"
-                  onClick={() => exportChart("chart-container-4")}
-                >
-                  Export
-                </button>
-              </div>
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-1 justify-center my-5 w-full">
+        <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white w-full">
           <div
             data-aos="fade-up"
             data-aos-easing="linear"
             data-aos-delay="400"
             data-aos-offset="0"
           >
-            <div className="mx-auto w-full p-6 border border-gray-200 rounded-lg shadow-xl bg-white">
+            <Options chartId={"map-container"} />
+            <div id="map-container" className="mx-auto w-full p-6 bg-white">
               <Map title="Géolocalisation des bornes" jsonDataProp={jsonData} />
             </div>
           </div>
@@ -188,6 +154,7 @@ function BuilderChart() {
             data-aos-duration="100"
           >
             <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white w-full">
+              <Options chartId={"chart-container-5"} />
               <div id="chart-container-5">
                 <Chart
                   type="radar"
@@ -201,15 +168,6 @@ function BuilderChart() {
                   labelValue={"Nombre de places"}
                 />
               </div>
-              <div className="text-center mt-3">
-                <button
-                  type="button"
-                  className="text-white bg-secondary hover:bg-accent focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5"
-                  onClick={() => exportChart("chart-container-5")}
-                >
-                  Export
-                </button>
-              </div>
             </div>
           </div>
           <div
@@ -219,6 +177,7 @@ function BuilderChart() {
             data-aos-offset="0"
           >
             <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white">
+              <Options chartId={"chart-container-6"} />
               <div id="chart-container-6">
                 <Chart
                   type="polarArea"
@@ -230,15 +189,6 @@ function BuilderChart() {
                   field={"n_operateur"}
                 />
               </div>
-              <div className="text-center mt-3">
-                <button
-                  type="button"
-                  className="text-white bg-secondary hover:bg-accent focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5"
-                  onClick={() => exportChart("chart-container-6")}
-                >
-                  Export
-                </button>
-              </div>
             </div>
           </div>
           <div
@@ -248,6 +198,7 @@ function BuilderChart() {
             data-aos-offset="0"
           >
             <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white">
+              <Options chartId={"chart-container-7"} />
               <div id="chart-container-7">
                 <Chart
                   type="bubble"
@@ -259,15 +210,6 @@ function BuilderChart() {
                   field={"n_amenageur"}
                 />
               </div>
-              <div className="text-center mt-3">
-                <button
-                  type="button"
-                  className="text-white bg-secondary hover:bg-accent focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5"
-                  onClick={() => exportChart("chart-container-7")}
-                >
-                  Export
-                </button>
-              </div>
             </div>
           </div>
           <div
@@ -277,6 +219,7 @@ function BuilderChart() {
             data-aos-offset="0"
           >
             <div className="box mx-auto p-6 border border-gray-200 rounded-lg shadow-xl bg-white">
+              <Options chartId={"chart-container-8"} />
               <div id="chart-container-8">
                 <Chart
                   type="scatter"
@@ -288,15 +231,6 @@ function BuilderChart() {
                   field={"date_mes"}
                   labelValue={"Nombre de bornes"}
                 />
-              </div>
-              <div className="text-center mt-3">
-                <button
-                  type="button"
-                  className="text-white bg-secondary hover:bg-accent focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5"
-                  onClick={() => exportChart("chart-container-8")}
-                >
-                  Export
-                </button>
               </div>
             </div>
           </div>
