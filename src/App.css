@@ -15,7 +15,6 @@
   height: 100%;
 }
 
-
 .box:hover {
   transform: scale(1.1);
   transition: all 1s ease-out;
