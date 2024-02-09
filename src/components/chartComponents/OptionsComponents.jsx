@@ -3,6 +3,10 @@ import * as htmlToImage from "html-to-image";
 import { saveAs } from "file-saver";
 
 const OptionsComponent = ({ chartId }) => {
+  function openModal() {
+    document.getElementById("modal").classList.remove("hidden");
+  }
+
   const exportChart = (chartId) => {
     const chartContainer = document.getElementById(chartId);
     if (chartContainer) {
@@ -30,6 +34,7 @@ const OptionsComponent = ({ chartId }) => {
       </button>
       <button
         type="button"
+        onClick={openModal}
         className="text-white bg-secondary hover:bg-accent focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm p-2"
       >
         <svg
