@@ -51,21 +51,31 @@ body {
   }
 }
 
-#startButton {
-  background-color: #ffcc00;
-  border: none;
-  border-radius: 20px;
+.startButton {
   padding: 15px 30px;
-  font-size: 1.5em;
+  margin-top: 20px;
+  font-size: 1em;
   color: #fff;
+  background-color: transparent;
   text-transform: uppercase;
+  border: 2px solid #ffcc00;
   letter-spacing: 1px;
   box-shadow: 0 0 20px #ffcc00;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  animation: fadeInButton 1.5s ease-in-out forwards;
-  position: absolute;
-  bottom: 10%;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button {
+  margin-top: 20px;
+  font-size: 1em;
+  color: black;
+  background-color: white;
+  border: 2px solid #ffcc00;
+  box-shadow: 0 0 20px #ffcc00;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 @keyframes fadeInButton {
@@ -78,10 +88,26 @@ body {
     transform: translateY(0);
   }
 }
+.button:hover {
+  background-color: #fff;
+  color: #000;
+}
+@media (min-width: 768px) {
+  .button:hover {
+    background-color: #ffcc00;
+    color: #000;
+    transform: scale(1.05);
+    box-shadow: 0 0 30px #ffcc00;
+  }
+}
 
-#startButton:hover {
+
+.startButton:hover {
+
+  background-color: #ffcc00;
+  color: #000;
   transform: scale(1.05);
-  box-shadow: 0 0 25px #ffcc00;
+  box-shadow: 0 0 30px #ffcc00;
 }
 
 #canvas-3d {

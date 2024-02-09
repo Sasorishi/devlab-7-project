@@ -13,11 +13,16 @@
 .box {
   width: 100%;
   height: 100%;
+  transition: all .2s ease-out;
+
+}
+
+.box * {
+  color: white
 }
 
 .box:hover {
-  transform: scale(1.1);
-  transition: all 1s ease-out;
+  transform: scale(1.03);
 }
 
 .chrome-picker {
@@ -26,22 +31,18 @@
 }
 
 .menu-container {
-  display: flex;
-  padding: 0.8rem;
-  position: absolute;
   z-index: 10;
 }
 
 .menu-1 {
   flex-basis: 20%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   padding: 1rem;
-  background: #f5f5f5;
   font-family: "Arial", sans-serif;
   color: #333;
   display: flex;
   flex-direction: column;
+  background-color: black;
   justify-content: space-between;
 }
 
@@ -50,12 +51,9 @@
   flex-wrap: wrap;
   gap: 1rem;
   transition: transform 0.5s ease-in-out;
-  transform: translateX(0);
+  transition: transform 0.5s ease-in-out;
 }
 
-.menu-1-containt.hidden {
-  transform: translateX(-100%);
-}
 
 h1 {
   font-size: 1.3rem;
@@ -88,7 +86,8 @@ label {
 .menu-2 h1,
 .menu-2 label {
   margin: 0.5rem 0;
-  color: #6daddc;
+  color: white
+
 }
 
 /* PATIE 1 Menu */
@@ -142,18 +141,55 @@ label {
   display: flex;
   gap: 4vmin;
   position: absolute;
-  left: 40%;
+  left: 10%;
   top: 55%;
   transform: translate(0%, -50%);
   user-select: none; /* -- Prevent image highlighting -- */
 }
 
+.animate-in {
+  animation: animateIn .5s ease 0.15s both;
+}
+
+.animate-out {
+  animation: animateOut .5s ease both;
+}
+
+@keyframes animateOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+@keyframes animateIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 .image {
   width: 40vmin;
-  height: 56vmin;
+  height: 300px;
   object-fit: cover;
   object-position: 100% center;
 }
+@media (max-width: 768px) {
+  .image {
+    height: 180px;
+  }
+}
+
 
 .image-label {
   width: 40vmin;
