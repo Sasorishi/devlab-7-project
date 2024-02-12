@@ -5,6 +5,7 @@ import SelectAxe from "../dashmenuComponents/SelectAxeComponent";
 import SelectColor from "../dashmenuComponents/SelectColorComponent";
 import SelectAlign from "../dashmenuComponents/SelectAlignComponent";
 import SelectTitle from "../dashmenuComponents/SelectTitleComponent";
+import { cn } from "../../lib/utils";
 
 const DashmenuComponent = () => {
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -23,10 +24,11 @@ const DashmenuComponent = () => {
   };
 
   return (
-    <div className="menu-container">
-      <form className="menu-1" onSubmit={handleSubmit}>
-        <div className="cursor-pointer" onClick={toggleFormVisibility}>
-          <h1>
+    <>
+ 
+    <div className={cn("menu-container  fixed top-[80px] sm:top-[100px] flex flex-col overflow-scroll", {'h-[60px] overflow-hidden': !isFormVisible})}>
+      <div className="cursor-pointer" onClick={toggleFormVisibility}>
+          <h1 className=" text-white border-2   border-[#ffcc00] bg-black p-2 rounded-lg">
             Configuration
             <div
               className={`ml-5 icon ${
@@ -43,10 +45,10 @@ const DashmenuComponent = () => {
               </svg>
             </div>
           </h1>
+          
         </div>
-
-        {isFormVisible && (
-          <div className={`menu-1-containt ${isFormVisible ? "" : "hidden"}`}>
+      <form className={cn(" mt-[10px] menu-1 w-[350px] duration-100 -translate-x-[350px] border-2 border-[#ffcc00]  bg-black p-2", { 'translate-x-0': isFormVisible })} onSubmit={handleSubmit}>
+          <div className={cn('menu-1-containt h-[calc(100vh-250px)] overflow-scroll  ')}>
             <SelectGraph />
             <SelectAxe />
             <SelectColor />
@@ -56,15 +58,15 @@ const DashmenuComponent = () => {
               <button
                 type="button"
                 onClick={() => handleSubmit()}
-                className="text-white bg-secondary hover:bg-accent focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+                className=" button text-white bg-secondary hover:bg-accent focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
               >
                 Appliquer
               </button>
             </div>
           </div>
-        )}
       </form>
     </div>
+    </>
   );
 };
 

@@ -52,14 +52,15 @@ function LoadData() {
       <div className="flex flex-col items-center justify-center h-screen">
         <label
           htmlFor="message"
-          className="block mb-2 text-sm font-medium text-gray-900"
+          className="block mb-2 text-[18px] font-medium text-[#ffcc00] pb-[10px]"
         >
           Générer les graphes à partir des données
         </label>
         <textarea
           id="message"
           rows="14"
-          className={`block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border ${
+
+          className={`block p-2.5 w-full text-sm  shadow-[0_0_20px_#ffcc00]  text-gray-900 bg-gray-50 rounded-lg border  ${
             isValidJson ? "border-gray-300" : "border-red-500"
           } focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
           placeholder="Écrire le JSON..."
@@ -67,14 +68,14 @@ function LoadData() {
           onChange={handleTextareaChange}
         ></textarea>
         <button
-          className="uppercase mt-4 p-2 bg-secondary text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+          className="button uppercase mt-4 px-4 py-2 bg-secondary text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
           onClick={handleSubmit}
         >
           valider
         </button>
       </div>
       {!isValidJson && (
-        <p className="mt-2 text-red-500 text-sm">Le JSON n'est pas valide.</p>
+        <p className="mt-2 text-red-500 text-sm">Le JSON n&apos;est pas valide.</p>
       )}
     </div>
   );
