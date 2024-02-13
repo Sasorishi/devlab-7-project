@@ -59,7 +59,6 @@ function LoadData() {
         <textarea
           id="message"
           rows="14"
-
           className={`block p-2.5 w-full text-sm  shadow-[0_0_20px_#ffcc00]  text-gray-900 bg-gray-50 rounded-lg border  ${
             isValidJson ? "border-gray-300" : "border-red-500"
           } focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
@@ -75,7 +74,9 @@ function LoadData() {
         </button>
       </div>
       {!isValidJson && (
-        <p className="mt-2 text-red-500 text-sm">Le JSON n&apos;est pas valide.</p>
+        <p className="mt-2 text-red-500 text-sm">
+          Le JSON n&apos;est pas valide.
+        </p>
       )}
     </div>
   );
