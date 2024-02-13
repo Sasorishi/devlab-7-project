@@ -9,10 +9,10 @@ const SelectColorComponent = () => {
   };
 
   return (
-    <div class="w-full mb-3">
+    <div className="w-full mb-3">
       <label
         htmlFor="colors"
-        class="font-bold block mb-2 text-sm text-gray-900"
+        className="font-bold block mb-2 text-sm text-gray-900"
       >
         Couleur du graphique
       </label>
