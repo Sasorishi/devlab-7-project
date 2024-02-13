@@ -33,7 +33,7 @@ function BuilderChart() {
 	return (
 		<>
 		<NavbarLayout />
-		<div className="mx-auto mb-5 h-auto py-[50px] bg-black">
+		<div className="mx-auto mb-5 h-auto py-[50px] bg-white">
 			<div className="flex flex-col items-center justify-center p-5">
 				<h1 className="text-[#ffcc00] uppercase ">Chart Builder - Dataset {numberDataset}</h1>
 			</div>

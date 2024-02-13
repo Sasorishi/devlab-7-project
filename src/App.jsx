@@ -20,7 +20,7 @@ function App() {
     <>
       
         <Router>
-          <div className="max-h-screen bg-black">
+          <div className="max-h-screen bg-white">
           <Routes>
             <Route path="/" element={<EarthAnimation />} />
             {/* <Route path="/" element={<HomePage />} /> */}

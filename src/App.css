@@ -17,7 +17,7 @@
 }
 
 .box * {
-  color: white;
+  color: black;
 }
 
 .box:hover {
@@ -38,10 +38,9 @@
   border-radius: 10px;
   padding: 1rem;
   font-family: "Arial", sans-serif;
-  color: #333;
   display: flex;
   flex-direction: column;
-  background-color: black;
+  background-color: white;
   justify-content: space-between;
 }
 
@@ -84,7 +83,7 @@ label {
 .menu-2 h1,
 .menu-2 label {
   margin: 0.5rem 0;
-  color: white;
+  color: #fdc914;
 }
 
 /* PATIE 1 Menu */

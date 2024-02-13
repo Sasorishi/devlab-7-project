@@ -55,8 +55,8 @@ body {
   padding: 15px 30px;
   margin-top: 20px;
   font-size: 1em;
-  color: #fff;
-  background-color: transparent;
+  color: black;
+  background-color: white;
   text-transform: uppercase;
   border: 2px solid #ffcc00;
   letter-spacing: 1px;
@@ -70,7 +70,7 @@ body {
   margin-top: 20px;
   font-size: 1em;
   color: black;
-  background-color: white;
+  background-color: white !important;
   border: 2px solid #ffcc00;
   box-shadow: 0 0 20px #ffcc00;
   cursor: pointer;
