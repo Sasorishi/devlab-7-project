@@ -6,7 +6,6 @@ import Footer from "./components/layout/FooterLayout";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-
 import EarthAnimation from "./pages/EarthAnimation";
 import BuilderChart from "./pages/BuilderChart";
 import LoadData from "./pages/LoadData";
@@ -15,12 +14,10 @@ import SelectData from "./pages/SelectData";
 function App() {
   AOS.init();
 
-
   return (
     <>
-      
-        <Router>
-          <div className="max-h-screen bg-black">
+      <Router>
+        <div className="max-h-screen">
           <Routes>
             <Route path="/" element={<EarthAnimation />} />
             {/* <Route path="/" element={<HomePage />} /> */}
@@ -33,8 +30,8 @@ function App() {
             <Route path="/load_data" element={<LoadData />} />
             <Route path="/select_data" element={<SelectData />} />
           </Routes>
-          </div>
-        </Router>
+        </div>
+      </Router>
     </>
   );
 }
