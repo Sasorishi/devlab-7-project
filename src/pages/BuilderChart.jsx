@@ -36,7 +36,7 @@ function BuilderChart() {
   return (
     <>
       <NavbarLayout />
-      <div className="mx-auto mb-5 h-auto py-[50px] bg-black">
+      <div className="mx-auto mb-5 h-auto py-[50px]">
         <div className="flex flex-col items-center justify-center p-5">
           <h1 className="text-[#ffcc00] uppercase ">
             Chart Builder - Dataset {numberDataset}
@@ -87,7 +87,7 @@ function BuilderChart() {
                     rows="14"
                     className={`block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
                     placeholder="Écrire le JSON..."
-                    value={jsonData}
+                    value={JSON.stringify(Dataset, null, 2)}
                   ></textarea>
                 </div>
               </div>
